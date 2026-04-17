@@ -5,38 +5,26 @@
 <title>Qaswa Travel</title><style>
 body{
     margin:0;
-    font-family: system-ui, Arial;
+    font-family:system-ui;
     background:#0b1220;
     color:white;
 }
 
 /* HEADER */
 header{
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    padding:30px 15px;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
     text-align:center;
-}
-
-header h1{
-    margin:0;
-    font-size:32px;
-}
-
-header p{
-    margin-top:8px;
-    opacity:0.9;
+    padding:25px;
 }
 
 /* NAV */
 nav{
     display:flex;
     justify-content:center;
-    gap:20px;
-    padding:12px;
+    gap:15px;
     background:#0f1a2e;
-    border-bottom:1px solid #1f2b45;
+    padding:10px;
 }
-
 nav a{
     color:white;
     text-decoration:none;
@@ -45,56 +33,48 @@ nav a{
 
 /* HERO */
 .hero{
-    padding:50px 15px;
     text-align:center;
+    padding:40px 15px;
     background:url('https://picsum.photos/1200/500?travel') center/cover;
     position:relative;
 }
-
 .hero::after{
     content:"";
     position:absolute;
-    top:0;left:0;right:0;bottom:0;
+    inset:0;
     background:rgba(0,0,0,0.5);
 }
-
 .hero-content{
     position:relative;
 }
 
-.hero h2{
-    font-size:28px;
-    margin-bottom:10px;
-}
-
-/* CONTAINER */
+/* SECTION */
 .container{
-    max-width:1000px;
+    max-width:900px;
     margin:auto;
-    padding:20px;
-}
-
-/* CARDS */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-    gap:15px;
+    padding:15px;
 }
 
 .card{
     background:#121c33;
     padding:15px;
     border-radius:12px;
-    border:1px solid #1f2b45;
+    margin-bottom:15px;
 }
 
-.card h3{
-    color:#00c6ff;
+/* FORM */
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    margin:5px 0;
+    border-radius:8px;
+    border:none;
+    background:#0f1a2e;
+    color:white;
 }
 
-/* BUTTON */
 button{
-    padding:10px 15px;
+    padding:10px;
     border:none;
     border-radius:8px;
     background:#00c6ff;
@@ -103,55 +83,107 @@ button{
     cursor:pointer;
 }
 
-/* FOOTER */
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:15px;
+    right:15px;
+    background:#25D366;
+    color:white;
+    padding:12px 15px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+}
+
+.price{
+    color:#00c6ff;
+    font-weight:bold;
+}
+
 footer{
     text-align:center;
     padding:20px;
     font-size:12px;
     color:#aaa;
-    border-top:1px solid #1f2b45;
 }
 </style></head><body><header>
     <h1>Qaswa Travel</h1>
     <p>Your Journey, Our Responsibility ✈️</p>
 </header><nav>
-    <a href="#">Home</a>
-    <a href="#">Tours</a>
-    <a href="#">Packages</a>
-    <a href="#">Contact</a>
-</nav><section class="hero">
-    <div class="hero-content">
-        <h2>Explore The World With Us</h2>
-        <p>Best travel deals for flights, hotels & tours</p>
-        <button onclick="alert('Thanks for choosing Qaswa Travel!')">Book Now</button>
-    </div>
-</section><div class="container"><h2 style="text-align:center;">Our Services</h2>
-
-<div class="grid">
-
-    <div class="card">
-        <h3>✈️ Flight Booking</h3>
-        <p>Cheap and fast flight booking for domestic & international travel.</p>
-    </div>
-
-    <div class="card">
-        <h3>🏨 Hotel Booking</h3>
-        <p>Comfortable and budget-friendly hotels anywhere in the world.</p>
-    </div>
-
-    <div class="card">
-        <h3>🧳 Tour Packages</h3>
-        <p>Custom travel packages for families, couples, and groups.</p>
-    </div>
-
-    <div class="card">
-        <h3>🚖 Local Transport</h3>
-        <p>Easy taxi, cab, and transport services during your trip.</p>
-    </div>
-
+    <a href="#services">Services</a>
+    <a href="#booking">Booking</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#price">Price</a>
+</nav><!-- HERO --><div class="hero">
+<div class="hero-content">
+    <h2>Explore The World With Qaswa Travel</h2>
+    <p>Flights • Hotels • Tours • Visa Assistance</p>
 </div>
+</div><div class="container"><!-- SERVICES --><div class="card" id="services">
+<h2>Our Services</h2>
+<p>✈️ Flights | 🏨 Hotels | 🧳 Tours | 📄 Visa Support</p>
+</div><!-- BOOKING FORM --><div class="card" id="booking">
+<h2>Book Your Trip</h2><input type="text" id="name" placeholder="Your Name">
+<input type="text" id="phone" placeholder="Phone Number">
+<input type="text" id="destination" placeholder="Destination">
+<input type="date" id="date"><textarea id="msg" placeholder="Your message"></textarea><button onclick="sendBooking()">Send Booking Request</button>
 
-</div><footer>
-    © 2026 Qaswa Travel | All Rights Reserved
-</footer></body>
+</div><!-- DESTINATIONS --><div class="card" id="destinations">
+<h2>Popular Destinations</h2><div class="grid">
+<div class="card">Dubai 🇦🇪</div>
+<div class="card">Makkah 🕋</div>
+<div class="card">Malaysia 🇲🇾</div>
+<div class="card">Thailand 🇹🇭</div>
+</div>
+</div><!-- PRICE CALCULATOR --><div class="card" id="price">
+<h2>Trip Price Calculator</h2><select id="place">
+<option value="20000">Dubai - ₹20,000</option>
+<option value="15000">Thailand - ₹15,000</option>
+<option value="25000">Malaysia - ₹25,000</option>
+<option value="50000">Makkah - ₹50,000</option>
+</select><input type="number" id="people" placeholder="Number of people"><button onclick="calcPrice()">Calculate Price</button>
+
+<p id="result"></p>
+</div></div><!-- WHATSAPP BUTTON --><a class="whatsapp" href="https://wa.me/919999999999" target="_blank">
+💬 Chat on WhatsApp
+</a><footer>
+© 2026 Qaswa Travel | All Rights Reserved
+</footer><script>
+// BOOKING
+function sendBooking(){
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let dest = document.getElementById("destination").value;
+    let date = document.getElementById("date").value;
+    let msg = document.getElementById("msg").value;
+
+    let text = `Hello Qaswa Travel,%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Destination: ${dest}%0A
+Date: ${date}%0A
+Message: ${msg}`;
+
+    window.open("https://wa.me/919999999999?text=" + text, "_blank");
+}
+
+// PRICE CALC
+function calcPrice(){
+    let price = document.getElementById("place").value;
+    let people = document.getElementById("people").value;
+
+    let total = price * people;
+
+    document.getElementById("result").innerText =
+        "Total Price: ₹" + total;
+}
+</script></body>
 </html>
